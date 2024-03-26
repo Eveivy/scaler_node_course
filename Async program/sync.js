@@ -1,24 +1,36 @@
 const fs = require('fs')
 
-console.log('First Line')
+// console.log('First Line')
  
-fs.readFile('text.txt', callback1)
 function callback1(err, data){
     if(err){
         console.log(err)
     }else{
         console.log(data.toString())
+        fs.readFile('text2.txt', callback2)
     }
 }
-fs.readFile('text2.txt', callback2)
+
+fs.readFile('text.txt', callback1)
+
 function callback2(err, data){
+    if(err){
+        console.log(err)
+    }else{
+        console.log(data.toString())
+        fs.readFile('text3.txt', callback3)
+    }
+}
+
+function callback3(err, data){
     if(err){
         console.log(err)
     }else{
         console.log(data.toString())
     }
 }
-console.log("Last Line")
+
+// console.log("Last Line")
 
 
 // console.log("First Line")
